@@ -32,13 +32,42 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
+//Admin_Route
 Route::middleware(['auth','role:admin'])->group(function(){
 
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+    Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+    Route::get('/admin/edit-profile', [AdminController::class, 'EditProfile'])->name('admin.edit.profile');
+
+
 
 }); //End_Group Middleware
 
+Route::middleware(['auth','role:admin'])->group(function(){
+
+    Route::prefix('admin')->group(function(){
+        Route::get('/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+        Route::get('/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+        Route::get('/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+        Route::get('/edit-profile', [AdminController::class, 'EditProfile'])->name('admin.edit.profile');
+
+    });
+//setup
+Route::prefix('setup')->group(function(){
+    Route::get('/student/view', [AdminController::class, 'AdminDashboard'])->name('student.class.view');
+    Route::get('/student/logout', [AdminController::class, 'AdminLogout'])->name('student.class.add');
+    Route::get('/student/profile', [AdminController::class, 'AdminProfile'])->name('student.class.store');
+    Route::get('/student/edit-profile', [AdminController::class, 'EditProfile'])->name('student.class.edit');
+    Route::get('/student/edit-profile', [AdminController::class, 'EditProfile'])->name('student.class.update');
+    Route::get('/student/edit-profile', [AdminController::class, 'EditProfile'])->name('student.class.delete');
+
+});
+    
+
+
+
+}); //End_Group Middleware
 
 Route::middleware(['auth','role:superadmin'])->group(function(){
 
@@ -46,5 +75,6 @@ Route::middleware(['auth','role:superadmin'])->group(function(){
 
 }); //End_Group Middleware
 
-
+//Admin Login
+ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
