@@ -55,12 +55,12 @@ Route::middleware(['auth','role:admin'])->group(function(){
     });
 //setup
 Route::prefix('setup')->group(function(){
-    Route::get('/student/view', [AdminController::class, 'AdminDashboard'])->name('student.class.view');
-    Route::get('/student/logout', [AdminController::class, 'AdminLogout'])->name('student.class.add');
-    Route::get('/student/profile', [AdminController::class, 'AdminProfile'])->name('student.class.store');
-    Route::get('/student/edit-profile', [AdminController::class, 'EditProfile'])->name('student.class.edit');
-    Route::get('/student/edit-profile', [AdminController::class, 'EditProfile'])->name('student.class.update');
-    Route::get('/student/edit-profile', [AdminController::class, 'EditProfile'])->name('student.class.delete');
+    Route::get('/student/class/view', [AdminController::class, 'AdminDashboard'])->name('student.class.view');
+    Route::get('/student/class/add', [AdminController::class, 'AdminLogout'])->name('student.class.add');
+    Route::get('/student/class/store', [AdminController::class, 'AdminProfile'])->name('student.class.store');
+    Route::get('/student/class/edit', [AdminController::class, 'EditProfile'])->name('student.class.edit');
+    Route::get('/student/class/update', [AdminController::class, 'EditProfile'])->name('student.class.update');
+    Route::get('/student/class/delete', [AdminController::class, 'EditProfile'])->name('student.class.delete');
 
 });
     
