@@ -60,7 +60,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Manage Seting
+               Manage Setup
                 <i class="fas fa-angle-left right"></i>
                 
               </p>
@@ -69,7 +69,7 @@
               <li class="nav-item">
                 <a href="{{route('admin.profile')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Your Profile</p>
+                  <p>Inst_Name</p>
                 </a>
               </li>
               <li class="nav-item">
